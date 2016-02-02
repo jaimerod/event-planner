@@ -35,6 +35,14 @@ var utils = {
 		return state;
 	},
 
+	getEventTypes: function () {
+		var data = JSON.parse(localStorage.getItem('data'));
+
+		return {
+			eventTypes: data.eventTypes
+		};
+	},
+
 	saveEvent: function (event) {
 		// This flag is set if an identical id is found
 		var found = false;

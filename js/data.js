@@ -11,11 +11,18 @@ module.exports = {
 			"Birthday": "04/11/1984"
 		}
 	],
+	"eventTypes": [
+		"Birthday",
+		"Meeting",
+		"Party",
+		"Sports Game",
+		"Wedding"
+	],
 	"events": [
 		{
 			"id": "58505ad6-ca53-421e-901a-a072e2bef21a",
 			"name": "Delicious Brunch",
-			"type": "Socializing",
+			"type": "Meeting",
 			"host": "Jaime Rodriguez",
 			"start": "2016-01-19T12:30",
 			"end":   "2016-01-19T13:30",
@@ -28,7 +35,7 @@ module.exports = {
 		}, {
 			"id": "d43f1554-b07d-4a63-af27-8a8bc2a0a701",
 			"name": "Romantic Dinner",
-			"type": "Food",
+			"type": "Party",
 			"host": "Chez Melange",
 			"start": "2016-02-19T18:00",
 			"end": "2016-02-19T19:00",

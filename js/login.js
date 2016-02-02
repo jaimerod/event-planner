@@ -52,12 +52,19 @@ var Login = React.createClass({
 		});
 	},
 
+	forceValidation: function (e) {
+		var frm = e.target;
+		if (!frm.reportValidity()) {
+			document.querySelector('.login').submit();
+		}
+	},
+
 	render: function () {
 		return (
 			<div>
 				<main>
 					<h1>Login</h1>
-					<form className="login" onSubmit={this.handleSubmit}>
+					<form className="login" onSubmit={this.handleSubmit} onChange={this.forceValidation}>
 						<fieldset>
 							<ul>
 								<li>

@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 var auth = require('./auth');
+var DateTime = require('react-datetime');
+var EventType = require('./event-type');
 var formatDate = require('./utils').formatDate;
 var getEvent = require('./utils').getEvent;
 var Link = require('react-router').Link;
 var Menu = require('./menu');
+var moment = require('moment');
 var React = require('react');
 var saveEvent = require('./utils').saveEvent;
-var DateTime = require('react-datetime');
-var moment = require('moment');
 
 var EventEdit = React.createClass({
 	// Sets the Initial State
@@ -46,7 +47,7 @@ var EventEdit = React.createClass({
 		saveEvent({
 			"id": this.refs.id.value,
 			"name": this.refs.name.value,
-			"type": this.refs.type.value,
+			"type": this.refs.type.refs.type.value,
 			"host": this.refs.host.value,
 			"start": this.refs.start.value,
 			"end": this.refs.end.value,
@@ -59,6 +60,13 @@ var EventEdit = React.createClass({
 		this.setState(event, function () {
 			this.props.history.replaceState(null, '/event/' + this.refs.id.value);
 		});
+	},
+
+	forceValidation: function (e) {
+		var frm = e.target;
+		if (!frm.reportValidity()) {
+			document.querySelector('#frm_edit-event').submit();
+		}
 	},
 
 	// Renders the React Component
@@ -88,7 +96,7 @@ var EventEdit = React.createClass({
 				<Menu links={links} />
 				<main>
 					<h1>Edit Event</h1>
-					<form onSubmit={this.handleSubmit}>
+					<form id="frm_edit-event" onSubmit={this.handleSubmit} onChange={this.forceValidation}>
 						<fieldset>
 							<legend>*Required Fields</legend>
 							<input
@@ -109,16 +117,7 @@ var EventEdit = React.createClass({
 										required
 										type="text" />
 								</li>
-								<li>
-									<label htmlFor="txt_type">Event Type*</label>
-									<input
-										defaultValue={this.state.type}
-										id="txt_type"
-										placeholder="e.g. Wedding, birthday, meeting"
-										ref="type"
-										required
-										type="text" />
-								</li>
+								<EventType ref="type" type={this.state.type} />
 								<li>
 									<label htmlFor="txt_host">Event hosted by*</label>
 									<input

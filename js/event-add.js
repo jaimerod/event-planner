@@ -1,13 +1,14 @@
 /** @jsx React.DOM */
 var auth = require('./auth');
+var DateTime = require('react-datetime');
+var EventType = require('./event-type');
 var formatDate = require('./utils').formatDate;
 var getEvent = require('./utils').getEvent;
 var Link = require('react-router').Link;
 var Menu = require('./menu');
+var moment = require('moment');
 var React = require('react');
 var saveEvent = require('./utils').saveEvent;
-var DateTime = require('react-datetime');
-var moment = require('moment');
 
 var EventEdit = React.createClass({
 	// Sets the Initial State
@@ -25,18 +26,11 @@ var EventEdit = React.createClass({
 		document.getElementById('txt_name').focus();
 	},
 
-	// Before we remove the components, do this
-	componentWillUnmount: function () {
-
-	},
-
-	// Before we mount the components, do this
-	componentWillMount: function () {
-
-	},
-
-	componentWillReceiveProps: function(nextProps) {
-
+	forceValidation: function (e) {
+		var frm = e.target;
+		if (!frm.reportValidity()) {
+			document.querySelector('#frm_add-event').submit();
+		}
 	},
 
 	handleSubmit: function (e) {
@@ -46,7 +40,7 @@ var EventEdit = React.createClass({
 		saveEvent({
 			"id": this.refs.id.value,
 			"name": this.refs.name.value,
-			"type": this.refs.type.value,
+			"type": this.refs.type.refs.type.value,
 			"host": this.refs.host.value,
 			"start": this.refs.start.value,
 			"end": this.refs.end.value,
@@ -63,6 +57,8 @@ var EventEdit = React.createClass({
 
 	// Renders the React Component
 	render: function () {
+		var that = this;
+
 		var links = [
 			{
 				'text': 'Back',
@@ -86,7 +82,7 @@ var EventEdit = React.createClass({
 				<Menu links={links} />
 				<main>
 					<h1>Add Event</h1>
-					<form onSubmit={this.handleSubmit}>
+					<form id="frm_add-event" onSubmit={this.handleSubmit} onChange={this.forceValidation}>
 						<fieldset>
 							<legend>*Required Fields</legend>
 							<input
@@ -107,16 +103,7 @@ var EventEdit = React.createClass({
 										required
 										type="text" />
 								</li>
-								<li>
-									<label htmlFor="txt_type">Event Type*</label>
-									<input
-										defaultValue={this.state.type}
-										id="txt_type"
-										placeholder="e.g. Wedding, birthday, meeting"
-										ref="type"
-										required
-										type="text" />
-								</li>
+								<EventType ref="type" type={this.state.type} />
 								<li>
 									<label htmlFor="txt_host">Event hosted by*</label>
 									<input
@@ -134,7 +121,7 @@ var EventEdit = React.createClass({
 										ref="start"
 										inputProps={{
 											id: "txt_start",
-											placeholder: "When the event starts",
+											placeholder: "Click for datepicker",
 											required: 1
 										}}
 										onChange={saveStart} />
@@ -145,7 +132,7 @@ var EventEdit = React.createClass({
 										ref="end"
 										inputProps={{
 											id: "txt_end",
-											placeholder: "When the event ends",
+											placeholder: "Click for datepicker",
 											required: 1
 										}}
 										onChange={saveEnd} />
@@ -156,7 +143,7 @@ var EventEdit = React.createClass({
 										autoComplete="city"
 										defaultValue={this.state.location}
 										id="txt_location"
-										placeholder=""
+										placeholder="e.g. Grand Central Station"
 										ref="location"
 										required
 										type="text" />
@@ -175,7 +162,8 @@ var EventEdit = React.createClass({
 									<textarea
 										defaultValue={this.state.message}
 										id="txt_message"
-										ref="message" />
+										ref="message"
+										placeholder="e.g. Please be 15 minutes early to get good seats" />
 								</li>
 								<li>
 									<input

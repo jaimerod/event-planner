@@ -26,7 +26,7 @@ var history = useBasename(createHistory)({
 	basename: ''
 });
 
-localStorage.removeItem('data');
+// localStorage.removeItem('data');
 
 if (localStorage.getItem('data') === null) {
 	console.log('Loading the data');

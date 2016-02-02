@@ -52,19 +52,19 @@ var SignUp = React.createClass({
 
 
 		if (input.value.match(requiredDigit) === null) {
-			input.setCustomValidity("Passwords must contain a number.");
+			return input.setCustomValidity("Passwords must contain a number.");
 		} else if (input.value.match(requiredSymbol) === null) {
-			input.setCustomValidity("Passwords must contain a symbol. e.g. !, @, #, $, %, ^, &, *");
+			return input.setCustomValidity("Passwords must contain a symbol. e.g. !, @, #, $, %, ^, &, *");
 		} else if (input.value.match(requiredUppercase) === null) {
-			input.setCustomValidity("Passwords must contain a uppercase letter.");
+			return input.setCustomValidity("Passwords must contain a uppercase letter.");
 		} else if (input.value.match(requiredLowercase) === null) {
-			input.setCustomValidity("Passwords must contain a lowercase letter.");
+			return input.setCustomValidity("Passwords must contain a lowercase letter.");
 		} else if (input.value.match(illegalCharacters) !== null) {
-			input.setCustomValidity("Passwords contains an illegal character. Only these symbols are valid: !, @, #, $, %, ^, &, *");
-		} else if (input.value.length < 16) {
-			input.setCustomValidity("Password should be a least 16 characters.");
+			return input.setCustomValidity("Passwords contains an illegal character. Only these symbols are valid: !, @, #, $, %, ^, &, *");
+		} else if (input.value.length < 6) {
+			return input.setCustomValidity("Password should be a least 6 characters.");
 		} else {
-			input.setCustomValidity("");
+			return input.setCustomValidity("");
 		}
 	},
 
@@ -79,6 +79,13 @@ var SignUp = React.createClass({
 			optional.style.visibility = 'visible';
 		} else {
 			submitter.click();
+		}
+	},
+
+	forceValidation: function (e) {
+		var frm = e.target;
+		if (!frm.reportValidity()) {
+			document.querySelector('#frm_sign-up').submit();
 		}
 	},
 
@@ -97,7 +104,7 @@ var SignUp = React.createClass({
 				</header>
 				<main>
 					<h1>Sign Up</h1>
-					<form id="frm_sign-up" onSubmit={this.handleSubmit}>
+					<form id="frm_sign-up" onSubmit={this.handleSubmit} onChange={this.forceValidation}>
 						<fieldset>
 							<legend>*Required Fields</legend>
 							<ul>
@@ -111,7 +118,8 @@ var SignUp = React.createClass({
 										id="txt_first_name"
 										ref="first_name"
 										required
-										type="text" />
+										type="text"
+										placeholder="John" />
 								</li>
 								<li>
 									<label htmlFor="txt_last_name">
@@ -122,7 +130,8 @@ var SignUp = React.createClass({
 										id="txt_last_name"
 										ref="last_name"
 										required
-										type="text"	/>
+										type="text"
+										placeholder="Doe"	/>
 								</li>
 								<li>
 									<label htmlFor="txt_email">
@@ -133,7 +142,8 @@ var SignUp = React.createClass({
 										id="txt_email"
 										ref="email"
 										required
-										type="email" />
+										type="email"
+										placeholder="example@me.com" />
 								</li>
 								<li>
 									<label htmlFor="txt_password">
@@ -144,7 +154,7 @@ var SignUp = React.createClass({
 										ref="pass"
 										required
 										type="password"
-										onKeyUp={this.validatePassword} />
+										onChange={this.validatePassword} />
 								</li>
 								<li>
 									<input
@@ -166,7 +176,8 @@ var SignUp = React.createClass({
 									<input
 										id="txt_employer"
 										ref="employer"
-										type="text" />
+										type="text"
+										placeholder="Acme, Inc."/>
 								</li>
 								<li>
 									<label htmlFor="txt_job_title">
@@ -175,7 +186,8 @@ var SignUp = React.createClass({
 									<input
 										id="txt_job_title"
 										ref="job_title"
-										type="text" />
+										type="text"
+										placeholder="Anvil Maker" />
 								</li>
 								<li>
 									<label htmlFor="txt_birthday">Birthday</label>
