@@ -85,7 +85,34 @@ var SignUp = React.createClass({
 		}
 
 		if (error) {
-			input.setCustomValidity("Password is not strong enough");
+			input.setCustomValidity(" ");
+		} else {
+			input.setCustomValidity("");
+		}
+	},
+
+	validateEmail: function (e) {
+		var input = e.target;
+		var error = false;
+		var value = input.value;
+		var requiredSymbol = /[\@]/;
+		var requiredAfter = /[\@][0-1a-z]/;
+
+
+		document.querySelector('#validAt').style.display = "none";
+		document.querySelector('#validAtAfter').style.display = "none";
+
+		if (input.value.match(requiredSymbol) === null) {
+			document.querySelector('#validAt').style.display = "block";
+			error = true;
+		}
+		if (input.value.match(requiredAfter) === null) {
+			document.querySelector('#validAtAfter').style.display = "block";
+			error = true;
+		}
+
+		if (error) {
+			input.setCustomValidity(" ");
 		} else {
 			input.setCustomValidity("");
 		}
@@ -164,10 +191,15 @@ var SignUp = React.createClass({
 									<input
 										autoComplete="email"
 										id="txt_email"
+										onChange={this.validateEmail}
 										ref="email"
 										required
-										type="email"
+										type="text"
 										placeholder="e.g., example@me.com" />
+										<p className="validEmail">
+											<span id="validAt">Please enter an @ sign.<br /></span>
+											<span id="validAtAfter">Enter a domain after the @ sign.</span>
+										</p>
 								</li>
 								<li>
 									<label htmlFor="txt_password">

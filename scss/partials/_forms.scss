@@ -110,3 +110,12 @@ input {
     display: block;
   }
 }
+
+input {
+  + .validEmail {
+    display: none;
+  }
+  &.dirty + .validEmail{
+    display: block;
+  }
+}
