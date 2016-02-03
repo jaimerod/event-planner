@@ -43,6 +43,7 @@ var SignUp = React.createClass({
 
 	validatePassword: function (e) {
 		var input = e.target;
+		var error = false;
 		var value = input.value;
 		var requiredSymbol = /[\!\@\#\$\%\^\&\*]/;
 		var requiredLowercase = /[a-z]/;
@@ -50,21 +51,43 @@ var SignUp = React.createClass({
 		var requiredDigit = /[0-9]/;
 		var illegalCharacters = /[^A-z0-9\!\@\#\$\%\^\&\*]/;
 
+		document.querySelector('#validDigit').style.display = "none";
+		document.querySelector('#validSymbol').style.display = "none";
+		document.querySelector('#validUpper').style.display = "none";
+		document.querySelector('#validLower').style.display = "none";
+		document.querySelector('#validExtra').style.display = "none";
+		document.querySelector('#validLength').style.display = "none";
+
 
 		if (input.value.match(requiredDigit) === null) {
-			return input.setCustomValidity("Passwords must contain a number.");
-		} else if (input.value.match(requiredSymbol) === null) {
-			return input.setCustomValidity("Passwords must contain a symbol. e.g. !, @, #, $, %, ^, &, *");
-		} else if (input.value.match(requiredUppercase) === null) {
-			return input.setCustomValidity("Passwords must contain a uppercase letter.");
-		} else if (input.value.match(requiredLowercase) === null) {
-			return input.setCustomValidity("Passwords must contain a lowercase letter.");
-		} else if (input.value.match(illegalCharacters) !== null) {
-			return input.setCustomValidity("Passwords contains an illegal character. Only these symbols are valid: !, @, #, $, %, ^, &, *");
-		} else if (input.value.length < 6) {
-			return input.setCustomValidity("Password should be a least 6 characters.");
+			document.querySelector('#validDigit').style.display = "block";
+			error = true;
+		}
+		if (input.value.match(requiredSymbol) === null) {
+			document.querySelector('#validSymbol').style.display = "block";
+			error = true;
+		}
+		if (input.value.match(requiredUppercase) === null) {
+			document.querySelector('#validUpper').style.display = "block";
+			error = true;
+		}
+		if (input.value.match(requiredLowercase) === null) {
+			document.querySelector('#validLower').style.display = "block";
+			error = true;
+		}
+		if (input.value.match(illegalCharacters) !== null) {
+			document.querySelector('#validExtra').style.display = "block";
+			error = true;
+		}
+		if (input.value.length < 6) {
+			document.querySelector('#validLength').style.display = "block";
+			error = true;
+		}
+
+		if (error) {
+			input.setCustomValidity("Password is not strong enough");
 		} else {
-			return input.setCustomValidity("");
+			input.setCustomValidity("");
 		}
 	},
 
@@ -84,6 +107,7 @@ var SignUp = React.createClass({
 
 	forceValidation: function (e) {
 		var frm = e.target;
+		frm.classList.toggle("dirty", true);
 		if (!frm.reportValidity()) {
 			document.querySelector('#frm_sign-up').submit();
 		}
@@ -119,7 +143,7 @@ var SignUp = React.createClass({
 										ref="first_name"
 										required
 										type="text"
-										placeholder="John" />
+										placeholder="e.g., John" />
 								</li>
 								<li>
 									<label htmlFor="txt_last_name">
@@ -131,7 +155,7 @@ var SignUp = React.createClass({
 										ref="last_name"
 										required
 										type="text"
-										placeholder="Doe"	/>
+										placeholder="e.g., Doe"	/>
 								</li>
 								<li>
 									<label htmlFor="txt_email">
@@ -143,7 +167,7 @@ var SignUp = React.createClass({
 										ref="email"
 										required
 										type="email"
-										placeholder="example@me.com" />
+										placeholder="e.g., example@me.com" />
 								</li>
 								<li>
 									<label htmlFor="txt_password">
@@ -154,7 +178,16 @@ var SignUp = React.createClass({
 										ref="pass"
 										required
 										type="password"
-										onChange={this.validatePassword} />
+										onChange={this.validatePassword}
+										placeholder="e.g., ••••••••••••" />
+										<p className="validPassword">
+											<span id="validDigit">Password must contain a number.<br /></span>
+											<span id="validSymbol">Password must contain a symbol. e.g. !, @, #, $, %, ^, &, *<br /></span>
+											<span id="validUpper">Password must contain a uppercase letter.<br /></span>
+											<span id="validLower">Password must contain a lowercase letter.<br /></span>
+											<span id="validExtra">Password contains an illegal character. Only these symbols are valid: !, @, #, $, %, ^, &amp;, *<br /></span>
+											<span id="validLength">Password should be a least 6 characters.</span>
+										</p>
 								</li>
 								<li>
 									<input
@@ -177,7 +210,7 @@ var SignUp = React.createClass({
 										id="txt_employer"
 										ref="employer"
 										type="text"
-										placeholder="Acme, Inc."/>
+										placeholder="e.g., Acme, Inc."/>
 								</li>
 								<li>
 									<label htmlFor="txt_job_title">
@@ -187,7 +220,7 @@ var SignUp = React.createClass({
 										id="txt_job_title"
 										ref="job_title"
 										type="text"
-										placeholder="Anvil Maker" />
+										placeholder="e.g., Anvil Maker" />
 								</li>
 								<li>
 									<label htmlFor="txt_birthday">Birthday</label>
@@ -196,7 +229,7 @@ var SignUp = React.createClass({
 										ref="birthday"
 										type="date"
 										id="txt_birthday"
-										placeholder="Birthday" />
+										placeholder="e.g., 01/01/1990" />
 								</li>
 								<li>
 									<input

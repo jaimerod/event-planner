@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+
 var auth = require('./auth');
 var DateTime = require('react-datetime');
 var EventType = require('./event-type');
@@ -28,6 +29,7 @@ var EventEdit = React.createClass({
 
 	forceValidation: function (e) {
 		var frm = e.target;
+		frm.classList.toggle("dirty", true);
 		if (!frm.reportValidity()) {
 			document.querySelector('#frm_add-event').submit();
 		}
@@ -96,9 +98,8 @@ var EventEdit = React.createClass({
 									<input
 										autoComplete="name"
 										autofocus
-										defaultValue={this.state.name}
 										id="txt_name"
-										placeholder="e.g. The Smith's Wedding"
+										placeholder="e.g., The Smith's Wedding"
 										ref="name"
 										required
 										type="text" />
@@ -108,9 +109,8 @@ var EventEdit = React.createClass({
 									<label htmlFor="txt_host">Event hosted by*</label>
 									<input
 										autoComplete="name"
-										defaultValue={this.state.host}
 										id="txt_host"
-										placeholder="e.g. Mario Lopez and Dick Clark"
+										placeholder="e.g., Mario Lopez and Dick Clark"
 										ref="host"
 										required
 										type="text" />
@@ -141,9 +141,8 @@ var EventEdit = React.createClass({
 									<label htmlFor="txt_location">Where is your event?*</label>
 									<input
 										autoComplete="city"
-										defaultValue={this.state.location}
 										id="txt_location"
-										placeholder="e.g. Grand Central Station"
+										placeholder="e.g., Grand Central Station"
 										ref="location"
 										required
 										type="text" />
@@ -151,7 +150,6 @@ var EventEdit = React.createClass({
 								<li>
 									<label htmlFor="txt_guests">Guests to invite*</label>
 									<textarea
-										defaultValue={this.state.guests}
 										id="txt_guests"
 										placeholder="One guest per line"
 										ref="guests"
@@ -160,10 +158,9 @@ var EventEdit = React.createClass({
 								<li>
 									<label htmlFor="txt_message">Message to attendees*</label>
 									<textarea
-										defaultValue={this.state.message}
 										id="txt_message"
 										ref="message"
-										placeholder="e.g. Please be 15 minutes early to get good seats" />
+										placeholder="e.g., Come 15 minutes early to get good seats" />
 								</li>
 								<li>
 									<input

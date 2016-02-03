@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+
 var auth = require('./auth');
 var DateTime = require('react-datetime');
 var EventType = require('./event-type');
@@ -26,20 +27,6 @@ var EventEdit = React.createClass({
 		document.getElementById('txt_name').focus();
 	},
 
-	// Before we remove the components, do this
-	componentWillUnmount: function () {
-
-	},
-
-	// Before we mount the components, do this
-	componentWillMount: function () {
-
-	},
-
-	componentWillReceiveProps: function(nextProps) {
-
-	},
-
 	handleSubmit: function (e) {
 		e.preventDefault()
 
@@ -64,6 +51,7 @@ var EventEdit = React.createClass({
 
 	forceValidation: function (e) {
 		var frm = e.target;
+		frm.classList.toggle("dirty", true);
 		if (!frm.reportValidity()) {
 			document.querySelector('#frm_edit-event').submit();
 		}
@@ -112,7 +100,7 @@ var EventEdit = React.createClass({
 										autofocus
 										defaultValue={this.state.name}
 										id="txt_name"
-										placeholder="e.g. The Smith's Wedding"
+										placeholder="e.g., The Smith's Wedding"
 										ref="name"
 										required
 										type="text" />
@@ -124,7 +112,7 @@ var EventEdit = React.createClass({
 										autoComplete="name"
 										defaultValue={this.state.host}
 										id="txt_host"
-										placeholder="e.g. Mario Lopez and Dick Clark"
+										placeholder="e.g., Mario Lopez and Dick Clark"
 										ref="host"
 										required
 										type="text" />
@@ -136,7 +124,7 @@ var EventEdit = React.createClass({
 										defaultValue={moment(this.state.start)}
 										inputProps={{
 											id: "txt_start",
-											placeholder: "When the event starts",
+											placeholder: "Click for datepicker",
 											required: 1
 										}}
 										onChange={saveStart} />
@@ -145,7 +133,7 @@ var EventEdit = React.createClass({
 									<label htmlFor="txt_end">When does your event end?*</label>
 									<DateTime ref="end" defaultValue={moment(this.state.end)} inputProps={{
 										id: "txt_end",
-										placeholder: "When the event ends",
+										placeholder: "Click for datepicker",
 										required: 1
 									}} onChange={saveEnd} />
 								</li>
@@ -155,7 +143,7 @@ var EventEdit = React.createClass({
 										autoComplete="city"
 										defaultValue={this.state.location}
 										id="txt_location"
-										placeholder=""
+										placeholder="e.g., Grand Central Station"
 										ref="location"
 										required
 										type="text" />
@@ -174,7 +162,8 @@ var EventEdit = React.createClass({
 									<textarea
 										defaultValue={this.state.message}
 										id="txt_message"
-										ref="message" />
+										ref="message"
+										placeholder="e.g., Come 15 minutes early to get good seats" />
 								</li>
 								<li>
 									<input

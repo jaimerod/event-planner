@@ -97,13 +97,9 @@ gulp.task('styles', function () {
 gulp.task('watch', function () {
   var server = livereload.listen();
   buildScript('app.js', true);
-  //gulp.watch([jsFolder + '/**/*.js'], ['scripts']);
   gulp.watch([sassFolder + '/**/*.scss'], ['styles']);
-  //gulp.watch([imageFolder + '/**/*'], ['images']);
 });
 
 // run 'scripts' task first, then watch for future changes
-gulp.task('default', ['scripts', 'styles'], function() {
-  var server = livereload.listen();
-  return buildScript('app.js', true);
+gulp.task('default', ['scripts', 'styles', 'watch'], function() {
 });

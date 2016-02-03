@@ -35,6 +35,15 @@ fieldset {
       border-radius: 3px;
       padding: 10px 5px;
       width: 100%;
+
+      &.dirty:valid {
+        border: 2px solid #383;
+      }
+
+      &.dirty:invalid {
+        border: 2px solid #c33;
+      }
+
     }
 
     label {
@@ -92,6 +101,12 @@ form.login {
   border-radius: 3px;
   border: 1px solid $darkGray;
   padding: 12px;
-
-
+}
+input {
+  + .validPassword {
+    display: none;
+  }
+  &.dirty + .validPassword{
+    display: block;
+  }
 }

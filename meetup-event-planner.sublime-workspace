@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"e",
+				"exports"
+			],
+			[
 				"Sig",
 				"SignUp〔variable〕"
 			],
@@ -87,38 +91,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "js/event-edit.js",
-			"settings":
-			{
-				"buffer_size": 4863,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/login.js",
-			"settings":
-			{
-				"buffer_size": 2185,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "js/sign-up.js",
-			"settings":
-			{
-				"buffer_size": 5133,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "gulpfile.js",
-			"settings":
-			{
-				"buffer_size": 2957,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -182,25 +154,26 @@
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/modules",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials"
 	],
 	"file_history":
 	[
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-add.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/sign-up.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/app.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-edit.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/data.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials/_forms.scss",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-details.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/login.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials/_navigation.scss",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/gulpfile.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-edit.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/package.json",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-type.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/app.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/data.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-details.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/utils.js",
+		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials/_navigation.scss",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/no-match.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/index.html",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-list.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/package.json",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials/_react-datetime.scss",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/logout.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/modules/_colors.scss",
@@ -210,7 +183,6 @@
 		"/C/repo/gitlab.envivent.com/Bayer/licensingdb.xofigo-us.com/user/add/index.php",
 		"/C/repo/gitlab.envivent.com/Bayer/licensingdb.xofigo-us.com/meta/repl_db.sql",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/event-summary.js",
-		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/gulpfile.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/scss/partials/_structure.scss",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/build/js/app.js",
 		"/C/Users/hiiam/Desktop/DESKTOP/meetup-event-planner/js/auth.js",
@@ -313,8 +285,7 @@
 		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_navigation.scss",
 		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_section-specific.scss",
 		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_tooltip.scss",
-		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_touts.scss",
-		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_print.scss"
+		"/C/repo/gitlab.envivent.com/orapharma/neutrasal.com/src/scss/partials/_touts.scss"
 	],
 	"find":
 	{
@@ -349,6 +320,26 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"<span id",
+			"</p>\n										<p className=\"validPassword\">",
+			"validPassword",
+			"id=\"valid",
+			"input.setCustomValidity(\"Password is not strong enough\");",
+			"input.setCustomValidity",
+			"class",
+			"visibility",
+			"visible",
+			"hidden",
+			"<p id",
+			"id",
+			"document",
+			"querySelector",
+			"visible",
+			"return input",
+			"render",
+			"saveEvent",
+			"ReactComponent",
+			"input.setCustomValidit",
 			"input.",
 			"autocomplete",
 			"console",
@@ -456,27 +447,7 @@
 			"left",
 			"NeutraSal®",
 			"'question'",
-			"NeutraSal®",
-			"lato",
-			"link",
-			"Module\\StaticCache",
-			"ob_",
-			"rrmdir",
-			"\"link\": \"/",
-			"'logo.png'",
-			"after",
-			"title=\"PAH Pathways\"",
-			"class=\"callout\"",
-			"toggle",
-			"col-right",
-			"RenderIndication",
-			"expandable",
-			"The VENTAVIS 20 mcg/mL concentration order form is intended for patients who are maintained at the 5 mcg dose and who have repeatedly experienced extended treatment times which could result in incomplete dosing. VENTAVIS 10 mcg/mL ampules are still available. VENTAVIS should be taken 6 to 9 times daily, at least 2 hours apart.",
-			">",
-			"<",
-			"VENTAVIS HAS BEEN SHOWN TO HELP SOME PATIENTS IMPRO",
-			"improve",
-			"each"
+			"NeutraSal®"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -502,138 +473,8 @@
 	"groups":
 	[
 		{
-			"selected": 2,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "js/event-edit.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4863,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2334,
-								2334
-							],
-							[
-								2950,
-								2950
-							],
-							[
-								3944,
-								3944
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2244.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/login.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2185,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1429,
-								1429
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/sign-up.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5133,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2024,
-								2024
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 858.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "gulpfile.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2915,
-								2915
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/Material Theme/langs/Gulpfile JS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1650.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				}
 			]
 		}
 	],

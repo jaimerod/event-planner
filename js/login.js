@@ -54,6 +54,7 @@ var Login = React.createClass({
 
 	forceValidation: function (e) {
 		var frm = e.target;
+		frm.classList.toggle("dirty", true);
 		if (!frm.reportValidity()) {
 			document.querySelector('.login').submit();
 		}
@@ -77,7 +78,8 @@ var Login = React.createClass({
 										id="txt_email"
 										ref="email"
 										required
-										type="email" />
+										type="email"
+										placeholder="e.g., example@me.com" />
 								</li>
 								<li>
 									<label htmlFor="txt_password">
@@ -87,7 +89,8 @@ var Login = React.createClass({
 										id="txt_password"
 										ref="pass"
 										required
-										type="password" />
+										type="password"
+										placeholder="e.g., ••••••••••••" />
 								</li>
 								<li>
 									<input

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browserify -g uglifyify -t reactify js/app.js -o js/build/app.js"
+    "start": "gulp"
   },
   "author": "",
   "license": "ISC",
